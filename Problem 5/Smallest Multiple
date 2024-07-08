@@ -1,0 +1,26 @@
+import time # for checking the time elapsed time for the executing the code
+# of course we could import math and use their functions to make the process faster
+
+# checking to see if it is divided with all numbers till 20
+def can_be_divided(n):
+    for i in range(2, 21):
+        if n % i != 0:
+            return False
+    return True
+
+start_time = time.time()
+
+num = 20 # because the biggest number is 20 so it should be for sure divided by 20 and
+#          because of that i added 20 to each increment.
+
+while True:
+    if can_be_divided(num):
+        print(num)
+        break
+    num += 20
+
+end_time = time.time()
+
+time_range = end_time - start_time
+
+print(f"time taken : {time_range}")
