@@ -1,0 +1,41 @@
+def is_prime(num):
+    """
+    Check if a number is prime.
+
+    Args:
+        num (int): The number to check.
+
+    Returns:
+        bool: True if the number is prime, False otherwise.
+    """
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
+def find_nth_prime(n):
+    """
+    Find the nth prime number.
+
+    Args:
+        n (int): The position of the prime number to find.
+
+    Returns:
+        int: The nth prime number.
+    """
+    count = 0
+    num = 1
+    while count < n:
+        num += 1
+        if is_prime(num):
+            count += 1
+    return num
+
+
+# Example usage:
+n = 10001
+nth_prime = find_nth_prime(n)
+print(f"The {n}th prime number is: {nth_prime}")
