@@ -1,0 +1,7 @@
+num = 2 ** 1000
+
+num_stg = str(num)
+
+total = sum(int(digit) for digit in num_stg)
+
+print(total)
