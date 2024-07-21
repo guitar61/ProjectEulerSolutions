@@ -1,0 +1,11 @@
+# Importing the permutations function from the itertools module
+from itertools import permutations
+
+# Defining a string of numbers from 0 to 9
+stg_num = '0123456789'
+
+# Generating all possible permutations of the string of numbers
+lst = list(itertools.permutations(stg_num))
+
+# Joining the elements of the 1,000,000th permutation (0-based index) into a single string
+print("".join(lst[999999]))
