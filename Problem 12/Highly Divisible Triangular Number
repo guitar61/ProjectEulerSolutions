@@ -1,0 +1,21 @@
+def triangle(n):
+    return n * (n + 1) // 2
+
+def count_divisors(num):
+    count = 0
+    sqrt = int(num**0.5)
+    for i in range(1, sqrt + 1):
+        if num % i == 0:
+            count += 2 if i != num // i else 1
+    return count
+
+def find_triangular_with_divisors(limit):
+    n = 1
+    while True:
+        tri_number = triangle(n)
+        if count_divisors(tri_number) > limit:
+            return tri_number
+        n += 1
+
+result = find_triangular_with_divisors(500)
+print(result)
