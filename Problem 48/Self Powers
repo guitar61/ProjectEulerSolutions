@@ -1,0 +1,9 @@
+total = 0
+for i in range(1, 1001):
+    total += pow(i, i)
+
+# changing the int to stg to be able to access with index 
+total = str(total)
+
+# slicing from last 10 digits till the end of the str
+print(total[-10:])
