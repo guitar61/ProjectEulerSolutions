@@ -1,0 +1,28 @@
+# Define the required number of digits
+limit = 1000
+
+# Initialize the first two Fibonacci numbers
+f_1 = 1
+f_2 = 1
+
+# Start the index at 2 since F_1 and F_2 are the first two Fibonacci numbers
+index = 2
+
+# Loop until we find a Fibonacci number with the required number of digits
+while True:
+    # Generate the next Fibonacci number
+    f_next = f_1 + f_2
+    
+    # Update the previous two Fibonacci numbers
+    f_1 = f_2
+    f_2 = f_next
+    
+    # Increment the index
+    index += 1
+    
+    # Check the number of digits in the current Fibonacci number
+    if len(str(f_2)) >= limit:
+        break
+
+# Display the result
+print(index)
