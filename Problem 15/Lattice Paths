@@ -1,0 +1,15 @@
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+# Calculate the number of lattice paths for a 20x20 grid
+# The number of lattice paths is given by the binomial coefficient formula:
+# Number of Paths = (2n)! / (n! * n!)
+n = 20
+result = factorial(2 * n) // (factorial(n) * factorial(n))
+
+print("Number of lattice paths in a 20x20 grid:", result)
