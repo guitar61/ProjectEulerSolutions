@@ -1,0 +1,48 @@
+file_name = '0022_names.txt'
+
+# Step 1: Read and process the names from the file
+with open(file_name, 'r') as file:
+    names = file.read().strip()
+
+names = names.replace('"', '').split(',')
+
+# Step 2: Sort the names alphabetically
+names.sort()
+
+# Step 3: Write the sorted names back to a file and store them in a list
+sorted_names_list = []
+
+
+with open('sorted_names.txt', 'w') as file:
+    for name in names:
+        file.write(name + ",")  # Write names separated by commas
+        sorted_names_list.append(name)
+
+
+# Remove the trailing comma from the last entry in the file
+with open('sorted_names.txt', 'r') as file:
+    content = file.read().rstrip(',')
+
+with open('sorted_names.txt', 'w') as file:
+    file.write(content)
+
+# Step 4: Create a list of alphabets and initialize a dictionary
+worth = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+         'V', 'W', 'X', 'Y', 'Z']
+
+i = 1
+my_dic = {}
+# Step 5: Calculate the index sum for each name
+for name in sorted_names_list:
+    index_sum = 0
+    for char in name:
+        index = worth.index(char) + 1
+        index_sum += index
+    my_dic[name] = index_sum * i
+    i += 1
+
+
+total_score = 0
+for value in my_dic.values():
+    total_score += value
+print(total_score)
